@@ -1,23 +1,63 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Timetable from './components/Timetable';
 
 function App() {
+  const [data, setData] = useState({
+    '9:00': {
+      Monday: { class: 'Hello', subject: '', teacher: '' },
+      Tuesday: { class: '', subject: '', teacher: '' },
+      Wednesday: { class: '', subject: '', teacher: '' },
+      Thursday: { class: '', subject: '', teacher: '' },
+      Friday: { class: '', subject: '', teacher: '' },
+    },
+    '10:00': {
+      Monday: { class: '', subject: '', teacher: '' },
+      Tuesday: { class: '', subject: '', teacher: '' },
+      Wednesday: { class: '', subject: '', teacher: '' },
+      Thursday: { class: '', subject: '', teacher: '' },
+      Friday: { class: '', subject: '', teacher: '' },
+    },
+    '11:00': {
+      Monday: { class: '', subject: '', teacher: '' },
+      Tuesday: { class: '', subject: '', teacher: '' },
+      Wednesday: { class: '', subject: '', teacher: '' },
+      Thursday: { class: '', subject: '', teacher: '' },
+      Friday: { class: '', subject: '', teacher: '' },
+    },
+    '12:00': {
+      Monday: { class: '', subject: '', teacher: '' },
+      Tuesday: { class: '', subject: '', teacher: '' },
+      Wednesday: { class: '', subject: '', teacher: '' },
+      Thursday: { class: '', subject: '', teacher: '' },
+      Friday: { class: '', subject: '', teacher: '' },
+    },
+    '13:00': {
+      Monday: { class: '', subject: '', teacher: '' },
+      Tuesday: { class: '', subject: '', teacher: '' },
+      Wednesday: { class: '', subject: '', teacher: '' },
+      Thursday: { class: '', subject: '', teacher: '' },
+      Friday: { class: '', subject: '', teacher: '' },
+    },
+    '14:00': {
+      Monday: { class: '', subject: '', teacher: '' },
+      Tuesday: { class: '', subject: '', teacher: '' },
+      Wednesday: { class: '', subject: '', teacher: '' },
+      Thursday: { class: '', subject: '', teacher: '' },
+      Friday: { class: '', subject: '', teacher: '' },
+    },
+  });
+
+  const handleCellChange = (time, day, field, value) => {
+    const newData = { ...data };
+    newData[time][day][field] = value;
+    setData(newData);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>School Timetable</h1>
+      <Timetable data={data} onCellChange={handleCellChange} />
     </div>
   );
 }

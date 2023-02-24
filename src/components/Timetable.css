@@ -1,0 +1,55 @@
+.timetable {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.timetable th,
+.timetable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.timetable th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.timetable td {
+  text-align: left;
+}
+
+.timetable td select {
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.timetable td input {
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.timetable td input::placeholder {
+  color: #bbb;
+  font-weight: normal;
+}
+
+.timetable tr:nth-child(even) td {
+  background-color: #f9f9f9;
+}
+
+.timetable tr:hover td {
+  background-color: #ddd;
+}
+
+@media only screen and (max-width: 600px) {
+  .timetable td {
+    font-size: 0.8rem;
+  }
+}
